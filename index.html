@@ -60,6 +60,24 @@
   </header>
 
   <main>
+    <!-- Executive Print Header for CV Export (Only visible on print / PDF) -->
+    <div class="print-header">
+      <div class="print-header-top">
+        <div>
+          <h1 class="print-name">Roberto de Loma-Ossorio Salas</h1>
+          <p class="print-title">Técnico de Analítica Avanzada &amp; Administrador de Sistemas</p>
+        </div>
+        <img src="img/avatar.png" alt="Roberto de Loma-Ossorio Salas" class="print-avatar" />
+      </div>
+      <div class="print-contact-bar">
+        <span>📍 Sevilla (Movilidad B / A2 · Vehículo propio)</span>
+        <span>✉️ robertodelomaossorio@gmail.com</span>
+        <span>💼 linkedin.com/in/roberto-de-loma-ossorio-salas-042647317</span>
+        <span>🐙 github.com/robertodeloma</span>
+        <span>🌐 robertodeloma.github.io</span>
+      </div>
+    </div>
+
     <!-- ==========================================
          HERO SECTION
     =========================================== -->
@@ -74,7 +92,7 @@
               <span>Activo en Grupo Solutia · Sevilla</span>
             </div>
 
-            <p class="hero-eyebrow">// ADMINISTRADOR DE SISTEMAS &amp; CLOUD SPECIALIST</p>
+            <p class="hero-eyebrow">// TÉCNICO DE ANALÍTICA AVANZADA &amp; ADMINISTRADOR DE SISTEMAS</p>
             
             <h1 class="hero-title">
               Hola, soy <span class="highlight">Roberto</span><br />
@@ -82,14 +100,16 @@
             </h1>
 
             <div class="hero-role">
-              Administrador de Sistemas
-              <span class="tag-role">Sistemas · Virtualización · IA</span>
+              Técnico de Analítica Avanzada
+              <span class="tag-role">Administrador de Sistemas</span>
+              <span class="tag-role">Cloud &amp; GenAI Fabric</span>
             </div>
 
             <p class="hero-bio">
-              Profesional de infraestructuras TIC especializado en <strong>administración de sistemas híbridos</strong>, 
-              entornos de <strong>virtualización (VMware, VDI)</strong>, orquestación con <strong>Docker y Kubernetes</strong>, 
-              y tecnologías avanzadas de <strong>Inteligencia Artificial y Data Fabric</strong> (Azure AI, M365 Copilot, Stratio).
+              Técnico de Analítica Avanzada y Administrador de Sistemas en <strong>Grupo Solutia</strong>. 
+              Especializado en infraestructuras híbridas, plataformas de datos e Inteligencia Artificial 
+              (<strong>Stratio GenAI Data Fabric, Azure AI</strong>), virtualización (<strong>VMware ESXi, Hyper-V, VDI</strong>), 
+              y orquestación de contenedores con <strong>Docker y Kubernetes</strong>.
             </p>
 
             <!-- Meta details -->
@@ -328,7 +348,7 @@
             <div class="timeline-dot"></div>
             <div class="timeline-card">
               <div class="timeline-top">
-                <h3 class="timeline-role">Técnico de Sistemas</h3>
+                <h3 class="timeline-role">Técnico de Analítica Avanzada &amp; Administrador de Sistemas</h3>
                 <span class="badge-current">Puesto Actual</span>
               </div>
               <div class="timeline-company">
@@ -652,6 +672,7 @@
               <h3 class="skill-cat-title">Soporte, Ticketing &amp; Redes</h3>
             </div>
             <div class="skill-cat-list">
+              <span class="tag tag-indigo">Grafana</span>
               <span class="tag tag-indigo">Jira</span>
               <span class="tag">TeamViewer</span>
               <span class="tag">AnyDesk</span>
@@ -704,7 +725,53 @@
 
         <div class="projects-grid">
 
-          <!-- Project 1 -->
+          <!-- Project 1 (2026) -->
+          <div class="project-card" data-category="cloud-ai">
+            <div>
+              <div class="project-header">
+                <span class="project-badge-tag">Arquitectura de Datos &amp; IA</span>
+                <span class="mono" style="font-size: 11px; color: var(--text-muted);">2026</span>
+              </div>
+              <h3 class="project-name">Laboratorio Stratio GenAI Data Fabric &amp; Azure AI</h3>
+              <p class="project-desc">
+                Pruebas de concepto de integración de fuentes de datos heterogéneas gobernadas para consumo por modelos LLM.
+              </p>
+              <ul class="project-bullets">
+                <li>Políticas de Data Governance, linaje de datos y control de accesos por roles.</li>
+                <li>Exploración de servicios cognitivos y evaluación de agentes inteligentes de Microsoft 365 Copilot.</li>
+              </ul>
+            </div>
+            <div class="skills-tags">
+              <span class="tag tag-indigo">Stratio Data Fabric</span>
+              <span class="tag tag-indigo">Azure AI</span>
+              <span class="tag tag-indigo">Copilot</span>
+            </div>
+          </div>
+
+          <!-- Project 2 (2026) -->
+          <div class="project-card" data-category="virt cloud-ai">
+            <div>
+              <div class="project-header">
+                <span class="project-badge-tag">Contenedores &amp; Lab</span>
+                <span class="mono" style="font-size: 11px; color: var(--text-muted);">2026</span>
+              </div>
+              <h3 class="project-name">Orquestación de Contenedores con Kubernetes &amp; Docker</h3>
+              <p class="project-desc">
+                Diseño y operación de entornos ligeros contenerizados para despliegue de servicios y aplicaciones.
+              </p>
+              <ul class="project-bullets">
+                <li>Definición de manifiestos YAML, gestión de ConfigMaps, Secrets y almacenamiento persistente.</li>
+                <li>Aislamiento de microservicios y pruebas de recuperación ante caídas de nodos.</li>
+              </ul>
+            </div>
+            <div class="skills-tags">
+              <span class="tag tag-emerald">Kubernetes</span>
+              <span class="tag tag-emerald">Docker</span>
+              <span class="tag">Linux</span>
+            </div>
+          </div>
+
+          <!-- Project 3 (2025–2026) -->
           <div class="project-card" data-category="virt sys">
             <div>
               <div class="project-header">
@@ -728,7 +795,56 @@
             </div>
           </div>
 
-          <!-- Project 2 -->
+          <!-- Project 4 (2025) -->
+          <div class="project-card" data-category="dev">
+            <div>
+              <div class="project-header">
+                <span class="project-badge-tag" style="background: rgba(52, 211, 153, 0.1); color: var(--accent-emerald); border-color: rgba(52, 211, 153, 0.25);">Desarrollo Web · En Producción</span>
+                <span class="mono" style="font-size: 11px; color: var(--text-muted);">2025</span>
+              </div>
+              <h3 class="project-name">Portal Web para Alojamiento Turístico</h3>
+              <p class="project-desc">
+                Diseño, maquetación y despliegue en producción de una plataforma web moderna para la gestión y reservas de un alojamiento vacacional.
+              </p>
+              <ul class="project-bullets">
+                <li>Diseño adaptativo (responsive) optimizado para smartphones, tablets y ordenadores de escritorio.</li>
+                <li>Galería visual interactiva, sección de servicios e integración de canales de contacto directo.</li>
+              </ul>
+            </div>
+            <div class="skills-tags">
+              <span class="tag tag-emerald">HTML5</span>
+              <span class="tag tag-emerald">CSS3</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Diseño Responsivo</span>
+              <span class="tag">Producción</span>
+            </div>
+          </div>
+
+          <!-- Project 5 (2024) -->
+          <div class="project-card" data-category="dev">
+            <div>
+              <div class="project-header">
+                <span class="project-badge-tag">Aplicación Web · Local</span>
+                <span class="mono" style="font-size: 11px; color: var(--text-muted);">2024</span>
+              </div>
+              <h3 class="project-name">Aplicación Web de Control de Gastos Personales</h3>
+              <p class="project-desc">
+                Herramienta web interactiva desarrollada para el control de presupuestos y gestión organizada de finanzas personales.
+              </p>
+              <ul class="project-bullets">
+                <li>Registro dinámico de ingresos y gastos categorizados con balance automático en tiempo real.</li>
+                <li>Interfaz limpia con almacenamiento local en el navegador (LocalStorage) y persistencia de datos.</li>
+              </ul>
+            </div>
+            <div class="skills-tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">LocalStorage</span>
+              <span class="tag">Gestión de Estado</span>
+              <span class="tag">Finanzas Personales</span>
+            </div>
+          </div>
+
+          <!-- Project 6 (2022) -->
           <div class="project-card" data-category="sys virt">
             <div>
               <div class="project-header">
@@ -751,101 +867,6 @@
             </div>
           </div>
 
-          <!-- Project 3 -->
-          <div class="project-card" data-category="virt cloud-ai">
-            <div>
-              <div class="project-header">
-                <span class="project-badge-tag">Contenedores &amp; Lab</span>
-                <span class="mono" style="font-size: 11px; color: var(--text-muted);">2026</span>
-              </div>
-              <h3 class="project-name">Orquestación de Contenedores con Kubernetes &amp; Docker</h3>
-              <p class="project-desc">
-                Diseño y operación de entornos ligeros contenerizados para despliegue de servicios y aplicaciones.
-              </p>
-              <ul class="project-bullets">
-                <li>Definición de manifiestos YAML, gestión de ConfigMaps, Secrets y almacenamiento persistente.</li>
-                <li>Aislamiento de servicios y pruebas de recuperación ante caídas de nodos.</li>
-              </ul>
-            </div>
-            <div class="skills-tags">
-              <span class="tag tag-emerald">Kubernetes</span>
-              <span class="tag tag-emerald">Docker</span>
-              <span class="tag">Linux</span>
-            </div>
-          </div>
-
-          <!-- Project 4 -->
-          <div class="project-card" data-category="cloud-ai">
-            <div>
-              <div class="project-header">
-                <span class="project-badge-tag">Arquitectura de Datos</span>
-                <span class="mono" style="font-size: 11px; color: var(--text-muted);">2026</span>
-              </div>
-              <h3 class="project-name">Laboratorio Stratio GenAI Data Fabric &amp; Azure AI</h3>
-              <p class="project-desc">
-                Pruebas de concepto de integración de fuentes de datos heterogéneas gobernadas para consumo por modelos LLM.
-              </p>
-              <ul class="project-bullets">
-                <li>Políticas de Data Governance, linaje de datos y control de accesos por roles.</li>
-                <li>Exploración de servicios cognitivos y evaluación de agentes inteligentes de Microsoft 365 Copilot.</li>
-              </ul>
-            </div>
-            <div class="skills-tags">
-              <span class="tag tag-indigo">Stratio Data Fabric</span>
-              <span class="tag tag-indigo">Azure AI</span>
-              <span class="tag tag-indigo">Copilot</span>
-            </div>
-          </div>
-
-          <!-- Project 5 -->
-          <div class="project-card" data-category="dev">
-            <div>
-              <div class="project-header">
-                <span class="project-badge-tag" style="background: rgba(52, 211, 153, 0.1); color: var(--accent-emerald); border-color: rgba(52, 211, 153, 0.25);">Desarrollo Web · En Producción</span>
-                <span class="mono" style="font-size: 11px; color: var(--text-muted);">Publicado</span>
-              </div>
-              <h3 class="project-name">Portal Web para Alojamiento Turístico</h3>
-              <p class="project-desc">
-                Diseño, maquetación y despliegue en producción de una plataforma web moderna para la gestión y reservas de un alojamiento vacacional.
-              </p>
-              <ul class="project-bullets">
-                <li>Diseño adaptativo (responsive) optimizado para smartphones, tablets y ordenadores de escritorio.</li>
-                <li>Galería visual interactiva, sección de servicios e integración de canales de contacto directo.</li>
-              </ul>
-            </div>
-            <div class="skills-tags">
-              <span class="tag tag-emerald">HTML5</span>
-              <span class="tag tag-emerald">CSS3</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">Diseño Responsivo</span>
-              <span class="tag">Producción</span>
-            </div>
-          </div>
-
-          <!-- Project 6 -->
-          <div class="project-card" data-category="dev">
-            <div>
-              <div class="project-header">
-                <span class="project-badge-tag">Aplicación Web · Local</span>
-                <span class="mono" style="font-size: 11px; color: var(--text-muted);">Proyecto Propio</span>
-              </div>
-              <h3 class="project-name">Aplicación Web de Control de Gastos Personales</h3>
-              <p class="project-desc">
-                Herramienta web interactiva desarrollada para el control de presupuestos y gestión organizada de finanzas personales.
-              </p>
-              <ul class="project-bullets">
-                <li>Registro dinámico de ingresos y gastos categorizados con balance automático en tiempo real.</li>
-                <li>Interfaz limpia con almacenamiento local en el navegador (LocalStorage) y persistencia de datos.</li>
-              </ul>
-            </div>
-            <div class="skills-tags">
-              <span class="tag">JavaScript</span>
-              <span class="tag">LocalStorage</span>
-              <span class="tag">Gestión de Estado</span>
-              <span class="tag">Finanzas Personales</span>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
@@ -862,12 +883,31 @@
         </div>
 
         <div class="edu-cards">
+          <!-- Grado Superior ASIR -->
           <div class="edu-card">
             <div class="edu-icon">🎓</div>
             <div>
-              <h3 class="edu-degree">Formación Técnica en Informática y Sistemas</h3>
+              <h3 class="edu-degree">C.F.G.S. Administración de Sistemas Informáticos en Red (ASIR)</h3>
               <p class="edu-school">IES TRIANA · Sevilla</p>
-              <p class="edu-date">Administración de Sistemas Informáticos y Redes / Tecnologías de la Información</p>
+              <p class="edu-date" style="margin-bottom: 8px;">Grado Superior Oficial · Informática y Comunicaciones</p>
+              <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;">
+                Administración de sistemas Linux y Windows Server, virtualización VMware, contenedores y Kubernetes, 
+                servicios de redes de comunicación, resolución de incidencias e inglés técnico.
+              </p>
+            </div>
+          </div>
+
+          <!-- Grado Medio SMR -->
+          <div class="edu-card">
+            <div class="edu-icon">🔧</div>
+            <div>
+              <h3 class="edu-degree">C.F.G.M. Sistemas Microinformáticos y Redes (SMR)</h3>
+              <p class="edu-school">IES Camas - Antonio Brisquet · Camas (Sevilla)</p>
+              <p class="edu-date" style="margin-bottom: 8px;">sept. de 2020 – jul. de 2022 · Grado Medio Oficial</p>
+              <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;">
+                Instalación, configuración y mantenimiento de equipos informáticos, redes de área local, 
+                sistemas operativos cliente/servidor y soporte técnico a usuarios.
+              </p>
             </div>
           </div>
         </div>
