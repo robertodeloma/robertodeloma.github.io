@@ -658,6 +658,88 @@ header.site-header {
   color: var(--text-secondary);
 }
 
+/* Extras row: Languages & Mobility */
+.extras-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.lang-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.lang-badge:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.lang-badge span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--accent);
+  background: var(--tag-bg);
+  padding: 2px 7px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--tag-border);
+}
+
+/* Soft Skills block */
+.soft-skills-block {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.soft-skills-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.soft-skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.soft-skill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.soft-skill-chip:hover {
+  border-color: var(--accent-emerald);
+  color: var(--text-primary);
+}
+
+.soft-skill-chip svg {
+  color: var(--accent-emerald);
+  flex-shrink: 0;
+}
+
 /* ============================================================
    EXPERIENCIA TIMELINE
 ============================================================ */
