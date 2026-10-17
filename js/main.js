@@ -136,7 +136,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 2600);
   }
 
-  // 7. Print / Save CV button
+  // 7. Print / Save CV button & print listeners
+  let prePrintTheme = 'dark';
+  window.addEventListener('beforeprint', () => {
+    prePrintTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', 'light');
+  });
+
+  window.addEventListener('afterprint', () => {
+    document.documentElement.setAttribute('data-theme', prePrintTheme);
+  });
+
   const printBtn = document.getElementById('print-cv-btn');
   if (printBtn) {
     printBtn.addEventListener('click', (e) => {

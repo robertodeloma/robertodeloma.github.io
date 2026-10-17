@@ -1554,9 +1554,14 @@ footer.site-footer {
     margin: 8mm 12mm;
   }
 
+  /* Universal reset for print to prevent dark-mode variable leaks */
   *, *::before, *::after {
-    box-shadow: none !important;
+    color: #0f172a !important;
+    background-color: transparent !important;
+    background-image: none !important;
     text-shadow: none !important;
+    box-shadow: none !important;
+    -webkit-text-fill-color: initial !important;
     animation: none !important;
     transition: none !important;
   }
@@ -1569,6 +1574,26 @@ footer.site-footer {
     line-height: 1.35 !important;
     padding: 0 !important;
     margin: 0 !important;
+  }
+
+  strong, b, h1, h2, h3, h4, h5, h6, 
+  .print-name, .timeline-role, .cert-name, 
+  .edu-degree, .project-name, .skill-cat-title {
+    color: #000000 !important;
+    font-weight: 700 !important;
+    -webkit-text-fill-color: #000000 !important;
+  }
+
+  .about-text strong,
+  .about-text b,
+  .about-text p strong {
+    color: #000000 !important;
+    font-weight: 700 !important;
+    -webkit-text-fill-color: #000000 !important;
+  }
+
+  .about-text p {
+    color: #1e293b !important;
   }
 
   body::before,
@@ -1688,28 +1713,32 @@ footer.site-footer {
 
   .lang-badge {
     font-size: 7.5pt !important;
-    padding: 1px 6px !important;
-    border: 1px solid #cbd5e1 !important;
-    background: #f8fafc !important;
+    padding: 2px 7px !important;
+    border: 1px solid #94a3b8 !important;
+    background: #f1f5f9 !important;
     color: #0f172a !important;
+    display: inline-flex !important;
   }
 
   .lang-badge span {
     font-size: 7pt !important;
-    color: #0284c7 !important;
+    color: #0369a1 !important;
     background: #e0f2fe !important;
+    font-weight: 700 !important;
+    border: 1px solid #bae6fd !important;
   }
 
   .soft-skills-block {
     margin-top: 5px !important;
     padding-top: 4px !important;
-    border-top: 1px solid #e2e8f0 !important;
+    border-top: 1px solid #cbd5e1 !important;
   }
 
   .soft-skills-title {
     font-size: 7.5pt !important;
     margin-bottom: 3px !important;
-    color: #0284c7 !important;
+    color: #0369a1 !important;
+    font-weight: 700 !important;
   }
 
   .soft-skills-list {
