@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roberto de Loma-Ossorio Salas — Administrador de Sistemas & Cloud Specialist</title>
+  <meta name="description" content="Portfolio y CV interactivo de Roberto de Loma-Ossorio Salas, Administrador de Sistemas en Sevilla. Especializado en Kubernetes, Docker, VMware, VDI, Azure AI y Stratio GenAI Data Fabric." />
+  
+  <!-- Favicon SVG -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230a0e17'/><path d='M10 9h12M10 16h12M10 23h12' stroke='%2338bdf8' stroke-width='2.5' stroke-linecap='round'/><circle cx='6' cy='9' r='2' fill='%2338bdf8'/><circle cx='6' cy='16' r='2' fill='%2334d399'/><circle cx='6' cy='23' r='2' fill='%23818cf8'/></svg>" />
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Top Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="#hero" class="logo">
+        <div class="logo-icon">RL</div>
+        <span>roberto</span>.sys
+      </a>
+
+      <nav>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#sobre-mi" class="nav-link">Sobre Mí</a></li>
+          <li><a href="#experiencia" class="nav-link">Experiencia</a></li>
+          <li><a href="#certificaciones" class="nav-link">Certificaciones</a></li>
+          <li><a href="#skills" class="nav-link">Habilidades</a></li>
+          <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+          <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="theme-btn" aria-label="Cambiar tema">
+          <span id="theme-icon"></span>
+        </button>
+
+        <!-- Mobile Toggle Button -->
+        <button id="mobile-toggle" class="mobile-toggle" aria-label="Abrir menú">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================
+         HERO SECTION
+    =========================================== -->
+    <section id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <div class="hero-content">
+            <!-- Active Status Badge -->
+            <div class="status-badge">
+              <span class="pulse-dot"></span>
+              <span>Activo en Grupo Solutia · Sevilla</span>
+            </div>
+
+            <p class="hero-eyebrow">// ADMINISTRADOR DE SISTEMAS &amp; CLOUD SPECIALIST</p>
+            
+            <h1 class="hero-title">
+              Hola, soy <span class="highlight">Roberto</span><br />
+              de Loma-Ossorio Salas
+            </h1>
+
+            <div class="hero-role">
+              Administrador de Sistemas
+              <span class="tag-role">Sistemas · Virtualización · IA</span>
+            </div>
+
+            <p class="hero-bio">
+              Profesional de infraestructuras TIC especializado en <strong>administración de sistemas híbridos</strong>, 
+              entornos de <strong>virtualización (VMware, VDI)</strong>, orquestación con <strong>Docker y Kubernetes</strong>, 
+              y tecnologías avanzadas de <strong>Inteligencia Artificial y Data Fabric</strong> (Azure AI, M365 Copilot, Stratio).
+            </p>
+
+            <!-- Meta details -->
+            <div class="hero-meta-list">
+              <div class="hero-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>Sevilla, Andalucía, España</span>
+              </div>
+              <div class="hero-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+                <span>Grupo Solutia</span>
+              </div>
+              <div class="hero-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                  <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                </svg>
+                <span>IES Triana</span>
+              </div>
+            </div>
+
+            <!-- Action buttons -->
+            <div class="hero-actions">
+              <a href="#contacto" class="btn btn-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                Contactar
+              </a>
+              <a href="#certificaciones" class="btn btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="8" r="7"></circle>
+                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                </svg>
+                Ver Certificaciones
+              </a>
+              <button id="print-cv-btn" class="btn btn-outline" title="Exportar CV optimizado para impresión o PDF">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                  <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                  <rect x="6" y="14" width="12" height="8"></rect>
+                </svg>
+                Descargar CV (PDF)
+              </button>
+            </div>
+
+            <!-- Social links -->
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/roberto-de-loma-ossorio-salas-042647317" target="_blank" rel="noopener noreferrer" class="social-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+                LinkedIn
+              </a>
+              <a href="#contacto" class="social-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+                Contacto Directo
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Hero Avatar with frame & pulse -->
+          <div class="hero-avatar-wrapper">
+            <div class="avatar-frame">
+              <img src="img/avatar.png" alt="Roberto de Loma-Ossorio Salas" class="avatar-img" />
+              <div class="avatar-badge" title="Especialista Certificado">
+                ⚡
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SOBRE MÍ SECTION
+    =========================================== -->
+    <section id="sobre-mi">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">// PERFIL PROFESIONAL</span>
+          <h2 class="section-title">Sobre Mí</h2>
+          <p class="section-desc">Compromiso con la estabilidad, la seguridad y la evolución tecnológica en infraestructuras TIC.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              Soy un <strong>Administrador de Sistemas</strong> con base en Sevilla, enfocado en diseñar, mantener y optimizar 
+              infraestructuras de sistemas fiables y seguras para clientes empresariales y del sector público.
+            </p>
+            <p>
+              A lo largo de mi trayectoria en <strong>Grupo Solutia</strong>, he trabajado en proyectos de alta exigencia técnica: 
+              desde <strong>migraciones masivas a escritorios virtuales (VDI) para la Administración de Justicia</strong>, 
+              hasta la modernización de entornos de servidores <strong>Windows Server sobre VMware</strong> y la orquestación 
+              de cargas de trabajo contenerizadas mediante <strong>Docker y Kubernetes</strong>.
+            </p>
+            <p>
+              Complemento mi experiencia de sistemas con una firme apuesta por la vanguardia tecnológica: cuento con 
+              <strong>múltiples certificaciones oficiales</strong> en tecnologías de <strong>Inteligencia Artificial en Azure</strong>, 
+              administración de <strong>agentes en Microsoft 365 Copilot</strong> y la arquitectura de <strong>Stratio Generative AI Data Fabric</strong>, 
+              habilitando la integración segura entre infraestructuras de datos y modelos de IA.
+            </p>
+          </div>
+
+          <div class="highlight-cards">
+            <div class="highlight-card">
+              <div class="highlight-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                  <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                  <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                </svg>
+              </div>
+              <div>
+                <h3 class="highlight-title">Infraestructura &amp; Virtualización</h3>
+                <p class="highlight-sub">VMware ESXi, despliegues VDI, contenedores Docker y orquestación con Kubernetes.</p>
+              </div>
+            </div>
+
+            <div class="highlight-card">
+              <div class="highlight-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="highlight-title">Cloud &amp; IA Certificada</h3>
+                <p class="highlight-sub">Certificaciones oficiales en Azure AI (AI-901), Copilot (AB-900) y Stratio GenAI Data Fabric.</p>
+              </div>
+            </div>
+
+            <div class="highlight-card">
+              <div class="highlight-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h3 class="highlight-title">Migraciones Críticas</h3>
+                <p class="highlight-sub">Despliegue in-situ en sedes judiciales y actualización integral de servidores Windows Server.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         EXPERIENCIA SECTION
+    =========================================== -->
+    <section id="experiencia">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">// TRAYECTORIA LABORAL</span>
+          <h2 class="section-title">Experiencia Profesional</h2>
+          <p class="section-desc">Evolución en administración de sistemas, soporte avanzado y proyectos de infraestructura.</p>
+        </div>
+
+        <div class="timeline">
+
+          <!-- Item 1: Actualidad -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-top">
+                <h3 class="timeline-role">Técnico de Sistemas</h3>
+                <span class="badge-current">Puesto Actual</span>
+              </div>
+              <div class="timeline-company">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+                Grupo Solutia · Jornada completa
+              </div>
+              <div class="timeline-date">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                mar. 2026 – actualidad · Sevilla, Andalucía, España (Modalidad Híbrida)
+              </div>
+              <div class="timeline-desc">
+                Gestión, despliegue y mantenimiento avanzado de infraestructuras corporativas:
+                <ul>
+                  <li>Administración de entornos contenerizados mediante <strong>Docker</strong> y despliegue/orquestación con <strong>Kubernetes</strong>.</li>
+                  <li>Soporte técnico de segundo nivel, resolución de incidentes críticos y automatización de tareas del sistema.</li>
+                  <li>Monitorización y aseguramiento de la alta disponibilidad de servicios y servidores.</li>
+                </ul>
+              </div>
+              <div class="skills-tags">
+                <span class="tag tag-emerald">Kubernetes</span>
+                <span class="tag tag-emerald">Docker</span>
+                <span class="tag">Administración de Sistemas</span>
+                <span class="tag">Linux</span>
+                <span class="tag">Windows Server</span>
+                <span class="tag">Cloud Computing</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2: Técnico de campo VDI -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-top">
+                <h3 class="timeline-role">Técnico de Campo — Proyecto Migraciones a VDI en Justicia</h3>
+              </div>
+              <div class="timeline-company">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+                Grupo Solutia · Presencial
+              </div>
+              <div class="timeline-date">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                abr. 2025 – mar. 2026 · 1 año · Sevilla, España
+              </div>
+              <div class="timeline-desc">
+                Despliegue operativo in-situ para la modernización de puestos de trabajo en el sector público judicial:
+                <ul>
+                  <li>Ejecución de procesos de migración hacia infraestructuras de <strong>escritorios virtuales (VDI)</strong>.</li>
+                  <li>Configuración y puesta a punto de servidores virtuales y puestos clientes en sedes judiciales.</li>
+                  <li>Instalación física, configuración de red, verificación de perfiles y soporte a usuarios finales.</li>
+                </ul>
+              </div>
+              <div class="skills-tags">
+                <span class="tag tag-indigo">VDI (Virtual Desktops)</span>
+                <span class="tag tag-indigo">Servidores Virtuales</span>
+                <span class="tag">Instalación de Equipos</span>
+                <span class="tag">Redes Locales</span>
+                <span class="tag">Soporte Presencial</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3: Técnico de sistemas migración WS -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-top">
+                <h3 class="timeline-role">Técnico de Sistemas — Migración Windows Server</h3>
+              </div>
+              <div class="timeline-company">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+                Grupo Solutia · Jornada completa
+              </div>
+              <div class="timeline-date">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                mar. 2022 – sept. 2022 · 7 meses · Sevilla (Híbrido)
+              </div>
+              <div class="timeline-desc">
+                Proyecto específico enfocado en la actualización y consolidación de servidores:
+                <ul>
+                  <li>Migración integral de sistemas operativos <strong>Windows Server 2012 R2 a Windows Server 2019</strong>.</li>
+                  <li>Gestión y administración de máquinas virtuales sobre hipervisores <strong>VMware</strong>.</li>
+                  <li>Configuración de servicios de directorio activo (Active Directory), DNS, DHCP y servicios de red asociados.</li>
+                </ul>
+              </div>
+              <div class="skills-tags">
+                <span class="tag">Windows Server 2019</span>
+                <span class="tag">VMware ESXi</span>
+                <span class="tag">Active Directory</span>
+                <span class="tag">Servicios de Redes</span>
+                <span class="tag">DNS / DHCP</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         CERTIFICACIONES SECTION (DESTACADA)
+    =========================================== -->
+    <section id="certificaciones">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">// CREDENCIALES OFICIALES</span>
+          <h2 class="section-title">Certificaciones en Cloud &amp; IA</h2>
+          <p class="section-desc">Acreditaciones oficiales emitidas por Microsoft y Stratio Big Data Inc.</p>
+        </div>
+
+        <div class="certs-grid">
+
+          <!-- Cert 1: Microsoft Azure AI Fundamentals -->
+          <div class="cert-card cert-microsoft">
+            <div class="cert-top">
+              <div class="cert-badge-icon">☁️</div>
+              <div class="cert-meta">
+                <span class="cert-issuer">Microsoft · Credly</span>
+                <h3 class="cert-name">Microsoft Certified: Azure AI Fundamentals</h3>
+              </div>
+            </div>
+            <p class="cert-desc">
+              Competencias en ecosistemas Cloud y servicios de Inteligencia Artificial aplicada en Azure: 
+              Machine Learning, Visión Artificial, Procesamiento de Lenguaje Natural (NLP) y Servicios Cognitivos.
+            </p>
+            <div class="cert-footer">
+              <span class="cert-code">AI-901</span>
+              <span>Emitido Oficial</span>
+            </div>
+          </div>
+
+          <!-- Cert 2: Microsoft 365 Copilot -->
+          <div class="cert-card cert-microsoft">
+            <div class="cert-top">
+              <div class="cert-badge-icon">🤖</div>
+              <div class="cert-meta">
+                <span class="cert-issuer">Microsoft Certified</span>
+                <h3 class="cert-name">Microsoft 365 Copilot &amp; Agent Administration Fundamentals</h3>
+              </div>
+            </div>
+            <p class="cert-desc">
+              Administración, gobierno y despliegue de Microsoft 365 Copilot y agentes inteligentes. 
+              Gestión de permisos, seguridad, políticas corporativas y adopción de IA generativa.
+            </p>
+            <div class="cert-footer">
+              <span class="cert-code">AB-900</span>
+              <span>Julio 2026</span>
+            </div>
+          </div>
+
+          <!-- Cert 3: Stratio GenAI Data Fabric Ops -->
+          <div class="cert-card cert-stratio">
+            <div class="cert-top">
+              <div class="cert-badge-icon">⚡</div>
+              <div class="cert-meta">
+                <span class="cert-issuer">Stratio Big Data Inc.</span>
+                <h3 class="cert-name">Stratio Generative AI Data Fabric — Certificación Operaciones</h3>
+              </div>
+            </div>
+            <p class="cert-desc">
+              Operación y mantenimiento en producción de arquitecturas Data Fabric enfocadas en Inteligencia Artificial Generativa. 
+              Despliegue de nodos, monitorización y rendimiento de cargas de trabajo.
+            </p>
+            <div class="cert-footer">
+              <span class="cert-code">Ops v14.1</span>
+              <span>Julio 2026</span>
+            </div>
+          </div>
+
+          <!-- Cert 4: Stratio Data Processing -->
+          <div class="cert-card cert-stratio">
+            <div class="cert-top">
+              <div class="cert-badge-icon">📊</div>
+              <div class="cert-meta">
+                <span class="cert-issuer">Stratio Big Data Inc.</span>
+                <h3 class="cert-name">Stratio Generative AI Data Processing Certification</h3>
+              </div>
+            </div>
+            <p class="cert-desc">
+              Procesamiento avanzado, preparación e ingesta de flujos de datos estructurados y no estructurados 
+              para su consumo óptimo por pipelines de IA generativa.
+            </p>
+            <div class="cert-footer">
+              <span class="cert-code">Data Processing v14.8</span>
+              <span>Agosto 2026</span>
+            </div>
+          </div>
+
+          <!-- Cert 5: Stratio Data Governance -->
+          <div class="cert-card cert-stratio">
+            <div class="cert-top">
+              <div class="cert-badge-icon">🛡️</div>
+              <div class="cert-meta">
+                <span class="cert-issuer">Stratio Big Data Inc.</span>
+                <h3 class="cert-name">Stratio Generative AI Data Governance Certification</h3>
+              </div>
+            </div>
+            <p class="cert-desc">
+              Gobernanza de datos, linaje, catálogo unificado, políticas de cumplimiento normativo y seguridad 
+              por roles en entornos empresariales de IA.
+            </p>
+            <div class="cert-footer">
+              <span class="cert-code">Data Governance v14.8</span>
+              <span>2026</span>
+            </div>
+          </div>
+
+          <!-- Cert 6: Stratio Data Fabric Basics -->
+          <div class="cert-card cert-stratio">
+            <div class="cert-top">
+              <div class="cert-badge-icon">🧩</div>
+              <div class="cert-meta">
+                <span class="cert-issuer">Stratio Big Data Inc.</span>
+                <h3 class="cert-name">Stratio Generative AI Data Fabric Basics Certification</h3>
+              </div>
+            </div>
+            <p class="cert-desc">
+              Fundamentos de arquitecturas Data Fabric, virtualización de datos federada, conexión de fuentes dispares 
+              y habilitación de ecosistemas de Inteligencia Artificial.
+            </p>
+            <div class="cert-footer">
+              <span class="cert-code">Basics v14.8</span>
+              <span>2026</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         HABILIDADES SECTION (BENTO GRID)
+    =========================================== -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">// STACK &amp; APTITUDES</span>
+          <h2 class="section-title">Habilidades Técnicas</h2>
+          <p class="section-desc">Herramientas y tecnologías aplicadas en el día a día laboral y de laboratorio.</p>
+        </div>
+
+        <div class="skills-bento">
+
+          <!-- Cat 1 -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">📦</div>
+              <h3 class="skill-cat-title">Contenedores &amp; Virtualización</h3>
+            </div>
+            <div class="skill-cat-list">
+              <span class="tag">Kubernetes</span>
+              <span class="tag">Docker</span>
+              <span class="tag">VMware ESXi</span>
+              <span class="tag">vSphere</span>
+              <span class="tag">VDI (Virtual Desktops)</span>
+              <span class="tag">Servidores Virtuales</span>
+            </div>
+          </div>
+
+          <!-- Cat 2 -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">🤖</div>
+              <h3 class="skill-cat-title">Cloud &amp; Inteligencia Artificial</h3>
+            </div>
+            <div class="skill-cat-list">
+              <span class="tag">Microsoft Azure</span>
+              <span class="tag">Azure AI (AI-901)</span>
+              <span class="tag">M365 Copilot (AB-900)</span>
+              <span class="tag">Stratio Data Fabric</span>
+              <span class="tag">Data Processing</span>
+              <span class="tag">Data Governance</span>
+            </div>
+          </div>
+
+          <!-- Cat 3 -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">🖥️</div>
+              <h3 class="skill-cat-title">Sistemas Operativos &amp; Servidores</h3>
+            </div>
+            <div class="skill-cat-list">
+              <span class="tag">Windows Server (2012 / 2019 / 2022)</span>
+              <span class="tag">Active Directory</span>
+              <span class="tag">Linux (Ubuntu / Debian)</span>
+              <span class="tag">PowerShell</span>
+              <span class="tag">Bash</span>
+              <span class="tag">Directivas GPO</span>
+            </div>
+          </div>
+
+          <!-- Cat 4 -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">🌐</div>
+              <h3 class="skill-cat-title">Redes, Soporte &amp; Hardware</h3>
+            </div>
+            <div class="skill-cat-list">
+              <span class="tag">DNS / DHCP</span>
+              <span class="tag">TCP/IP &amp; VLANs</span>
+              <span class="tag">VPNs</span>
+              <span class="tag">Despliegue Hardware</span>
+              <span class="tag">Soporte In-Situ &amp; Remoto</span>
+              <span class="tag">Resolución de Incidencias</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         PROYECTOS SECTION (INTERACTIVA CON FILTROS)
+    =========================================== -->
+    <section id="proyectos">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">// CASOS DE ÉXITO &amp; INICIATIVAS</span>
+          <h2 class="section-title">Proyectos Destacados</h2>
+          <p class="section-desc">Proyectos empresariales e iniciativas de laboratorio técnico.</p>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="virt">Virtualización &amp; VDI</button>
+          <button class="filter-btn" data-filter="sys">Sistemas &amp; Servidores</button>
+          <button class="filter-btn" data-filter="cloud-ai">Cloud &amp; IA</button>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- Project 1 -->
+          <div class="project-card" data-category="virt sys">
+            <div>
+              <div class="project-header">
+                <span class="project-badge-tag">Empresarial · Sector Público</span>
+                <span class="mono" style="font-size: 11px; color: var(--text-muted);">2025–2026</span>
+              </div>
+              <h3 class="project-name">Migración Masiva a VDI en Sedes Judiciales</h3>
+              <p class="project-desc">
+                Despliegue e implantación de infraestructura de puestos virtuales (VDI) para la Administración de Justicia en Andalucía.
+              </p>
+              <ul class="project-bullets">
+                <li>Sustitución de hardware tradicional por puestos optimizados conectados a servidores virtuales.</li>
+                <li>Garantía de confidencialidad, alta disponibilidad y soporte directo in-situ durante la transición.</li>
+              </ul>
+            </div>
+            <div class="skills-tags">
+              <span class="tag">VDI</span>
+              <span class="tag">Servidores Virtuales</span>
+              <span class="tag">Hardware</span>
+              <span class="tag">Redes</span>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card" data-category="sys virt">
+            <div>
+              <div class="project-header">
+                <span class="project-badge-tag">Infraestructura Crítica</span>
+                <span class="mono" style="font-size: 11px; color: var(--text-muted);">2022</span>
+              </div>
+              <h3 class="project-name">Migración Windows Server 2012 R2 a 2019</h3>
+              <p class="project-desc">
+                Modernización integral de la plataforma de servidores corporativos sobre entorno virtualizado VMware.
+              </p>
+              <ul class="project-bullets">
+                <li>Actualización limpia de controladores de dominio, Active Directory, DNS y DHCP.</li>
+                <li>Planificación de contingencia sin cortes en los servicios de negocio de la organización.</li>
+              </ul>
+            </div>
+            <div class="skills-tags">
+              <span class="tag">Windows Server 2019</span>
+              <span class="tag">VMware ESXi</span>
+              <span class="tag">Active Directory</span>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card" data-category="virt cloud-ai">
+            <div>
+              <div class="project-header">
+                <span class="project-badge-tag">Contenedores &amp; Lab</span>
+                <span class="mono" style="font-size: 11px; color: var(--text-muted);">2026</span>
+              </div>
+              <h3 class="project-name">Orquestación de Contenedores con Kubernetes &amp; Docker</h3>
+              <p class="project-desc">
+                Diseño y operación de entornos ligeros contenerizados para despliegue de servicios y aplicaciones.
+              </p>
+              <ul class="project-bullets">
+                <li>Definición de manifiestos YAML, gestión de ConfigMaps, Secrets y almacenamiento persistente.</li>
+                <li>Aislamiento de servicios y pruebas de recuperación ante caídas de nodos.</li>
+              </ul>
+            </div>
+            <div class="skills-tags">
+              <span class="tag tag-emerald">Kubernetes</span>
+              <span class="tag tag-emerald">Docker</span>
+              <span class="tag">Linux</span>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-card" data-category="cloud-ai">
+            <div>
+              <div class="project-header">
+                <span class="project-badge-tag">Arquitectura de Datos</span>
+                <span class="mono" style="font-size: 11px; color: var(--text-muted);">2026</span>
+              </div>
+              <h3 class="project-name">Laboratorio Stratio GenAI Data Fabric &amp; Azure AI</h3>
+              <p class="project-desc">
+                Pruebas de concepto de integración de fuentes de datos heterogéneas gobernadas para consumo por modelos LLM.
+              </p>
+              <ul class="project-bullets">
+                <li>Políticas de Data Governance, linaje de datos y control de accesos por roles.</li>
+                <li>Exploración de servicios cognitivos y evaluación de agentes inteligentes de Microsoft 365 Copilot.</li>
+              </ul>
+            </div>
+            <div class="skills-tags">
+              <span class="tag tag-indigo">Stratio Data Fabric</span>
+              <span class="tag tag-indigo">Azure AI</span>
+              <span class="tag tag-indigo">Copilot</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         EDUCACIÓN SECTION
+    =========================================== -->
+    <section id="formacion">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">// BASE ACADÉMICA</span>
+          <h2 class="section-title">Educación y Formación</h2>
+          <p class="section-desc">Estudios técnicos en tecnologías de la información y sistemas.</p>
+        </div>
+
+        <div class="edu-cards">
+          <div class="edu-card">
+            <div class="edu-icon">🎓</div>
+            <div>
+              <h3 class="edu-degree">Formación Técnica en Informática y Sistemas</h3>
+              <p class="edu-school">IES TRIANA · Sevilla</p>
+              <p class="edu-date">Administración de Sistemas Informáticos y Redes / Tecnologías de la Información</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         CONTACTO SECTION
+    =========================================== -->
+    <section id="contacto">
+      <div class="container">
+        <div class="contact-container">
+          <div class="section-header" style="margin-bottom: 24px;">
+            <span class="section-label">// CONECTEMOS</span>
+            <h2 class="section-title">¿Hablamos?</h2>
+          </div>
+
+          <p class="contact-desc">
+            Estoy disponible para proyectos de administración de sistemas, infraestructura cloud, virtualización 
+            o iniciativas de integración con Inteligencia Artificial. ¡No dudes en escribirme!
+          </p>
+
+          <div class="contact-channels">
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/roberto-de-loma-ossorio-salas-042647317" target="_blank" rel="noopener noreferrer" class="contact-card">
+              <div class="contact-card-icon">💼</div>
+              <span class="contact-card-label">LinkedIn</span>
+              <span class="contact-card-value">Ver Perfil</span>
+            </a>
+
+            <!-- Ubicación -->
+            <div class="contact-card">
+              <div class="contact-card-icon">📍</div>
+              <span class="contact-card-label">Ubicación</span>
+              <span class="contact-card-value">Sevilla, España</span>
+            </div>
+
+            <!-- Email direct / copy -->
+            <a href="#" id="copy-email-btn" data-email="robertodelomaossorio@gmail.com" class="contact-card" title="Click para copiar al portapapeles">
+              <div class="contact-card-icon">✉️</div>
+              <span class="contact-card-label">Correo Electrónico</span>
+              <span class="contact-card-value">Copiar Email</span>
+            </a>
+          </div>
+
+          <div style="display: flex; justify-content: center; gap: 14px; margin-top: 10px;">
+            <a href="https://www.linkedin.com/in/roberto-de-loma-ossorio-salas-042647317" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              Mensaje en LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>Diseñado con estética <span class="footer-highlight">Dark Developer</span> para <strong>Roberto de Loma-Ossorio Salas</strong></p>
+        <p style="font-size: 11px;">HTML5 · CSS3 puro · JavaScript moderno · Optimizado para GitHub Pages</p>
+        <a href="#hero" style="font-size: 12px; margin-top: 6px;">↑ Volver arriba</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast notification for copied text -->
+  <div id="copy-toast">✓ Copiado al portapapeles</div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
