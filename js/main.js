@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (copyBtn && toast) {
     copyBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      const email = copyBtn.getAttribute('data-email') || 'robertodelomaossorio@gmail.com';
+      const email = copyBtn.getAttribute('data-email') || 'robertodeloma10@gmail.com';
       navigator.clipboard.writeText(email).then(() => {
         showToast('✓ Correo copiado al portapapeles');
       }).catch(() => {
