@@ -45,13 +45,22 @@
           </svg>
         </button>
 
+        <a href="Memoria_Proyecto_ASIR_Roberto_Salas.pdf" download="Memoria_Proyecto_ASIR_Roberto_Salas.pdf" class="btn btn-primary" title="Descargar la memoria oficial completa en PDF (53 páginas)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Descargar Memoria Oficial (PDF)</span>
+        </a>
+
         <button onclick="window.print()" class="btn btn-outline" title="Exportar o imprimir informe en PDF">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="6 9 6 2 18 2 18 9"></polyline>
             <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
             <rect x="6" y="14" width="12" height="8"></rect>
           </svg>
-          <span>Imprimir / PDF</span>
+          <span>Imprimir</span>
         </button>
       </div>
     </div>
@@ -670,10 +679,17 @@ Add-DhcpServerv4Reservation -ScopeId 192.168.1.0 -IPAddress 192.168.1.4 -ClientI
           Volver al Portfolio Principal
         </a>
 
-        <button onclick="window.print()" class="btn btn-outline">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-          Imprimir / Descargar Informe en PDF
-        </button>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <a href="Memoria_Proyecto_ASIR_Roberto_Salas.pdf" download="Memoria_Proyecto_ASIR_Roberto_Salas.pdf" class="btn btn-primary" title="Descargar documento oficial de 53 páginas">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Descargar Memoria Oficial Completa (PDF · 53 páginas)
+          </a>
+
+          <button onclick="window.print()" class="btn btn-outline" title="Imprimir página">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            Imprimir
+          </button>
+        </div>
       </div>
     </section>
 
