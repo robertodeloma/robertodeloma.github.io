@@ -19,6 +19,22 @@
 </head>
 <body>
 
+  <!-- Linux / Sysadmin Boot Sequence Overlay -->
+  <div id="boot-overlay" class="boot-overlay">
+    <div class="boot-container">
+      <div class="boot-bar">
+        <span class="boot-dot red"></span>
+        <span class="boot-dot yellow"></span>
+        <span class="boot-dot green"></span>
+        <span class="boot-title">systemd-boot · solutia-srv-01 (tty1)</span>
+      </div>
+      <div class="boot-body" id="boot-body"></div>
+      <div class="boot-footer">
+        <span>[ Click o pulsa cualquier tecla para entrar ]</span>
+      </div>
+    </div>
+  </div>
+
   <!-- Top Scroll Progress Bar -->
   <div id="scroll-progress"></div>
 
@@ -82,6 +98,9 @@
          HERO SECTION
     =========================================== -->
     <section id="hero">
+      <!-- Network Infrastructure Topology Canvas -->
+      <canvas id="network-canvas" class="hero-network-canvas"></canvas>
+
       <div class="container">
         <div class="hero-grid">
           
@@ -89,13 +108,13 @@
             <!-- Active Status Badge -->
             <div class="status-badge">
               <span class="pulse-dot"></span>
-              <span>Activo en Grupo Solutia · Sevilla</span>
+              <span>Activo en Grupo Solutia · Sevilla · Ping: 12ms</span>
             </div>
 
-            <p class="hero-eyebrow">// TÉCNICO DE ANALÍTICA AVANZADA &amp; ADMINISTRADOR DE SISTEMAS</p>
+            <p class="hero-eyebrow" data-full="// TÉCNICO DE ANALÍTICA AVANZADA &amp; ADMINISTRADOR DE SISTEMAS">// TÉCNICO DE ANALÍTICA AVANZADA &amp; ADMINISTRADOR DE SISTEMAS</p>
             
             <h1 class="hero-title">
-              Hola, soy <span class="highlight">Roberto</span><br />
+              Hola, soy <span class="highlight glitch-text" data-text="Roberto">Roberto</span><br />
               de Loma-Ossorio Salas
             </h1>
 
@@ -1026,6 +1045,42 @@
 
   <!-- Toast notification for copied text -->
   <div id="copy-toast">✓ Copiado al portapapeles</div>
+
+  <!-- Sysadmin Interactive Terminal Trigger -->
+  <button id="terminal-trigger-btn" class="terminal-trigger-btn" aria-label="Abrir terminal interactiva" title="Abrir Consola de Comandos Sysadmin">
+    <span class="term-pulse-dot"></span>
+    <span class="term-prompt">&gt;_</span>
+    <span class="term-label">Terminal</span>
+  </button>
+
+  <!-- Interactive Terminal Drawer / Modal -->
+  <div id="terminal-modal" class="terminal-modal" aria-hidden="true">
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span class="term-dot close" id="term-close-btn" title="Cerrar terminal"></span>
+          <span class="term-dot minimize" title="Minimizar"></span>
+          <span class="term-dot maximize" title="Maximizar"></span>
+        </div>
+        <div class="terminal-title">roberto@solutia-srv: ~ (bash / zsh)</div>
+        <div class="terminal-actions">
+          <span class="terminal-help-hint">Escribe <strong>help</strong></span>
+        </div>
+      </div>
+      <div class="terminal-body" id="terminal-body">
+        <div class="terminal-welcome">
+          <p class="term-green">Roberto de Loma-Ossorio Salas — Terminal v2.4 (x86_64)</p>
+          <p class="term-muted">Sesión interactiva establecida vía SSH / TLS v1.3.</p>
+          <p class="term-muted">Escribe <span class="term-cyan">help</span> para consultar los comandos o <span class="term-cyan">neofetch</span> para ver la telemetría.</p>
+        </div>
+        <div id="terminal-history"></div>
+        <div class="terminal-input-row">
+          <span class="term-prompt-user">roberto@solutia:~$</span>
+          <input type="text" id="terminal-input" class="terminal-input" autocomplete="off" spellcheck="false" />
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Scripts -->
   <script src="js/main.js"></script>
