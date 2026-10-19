@@ -127,7 +127,10 @@ document.addEventListener('DOMContentLoaded', () => {
           card.removeAttribute('data-hidden');
           card.style.animation = 'none';
           requestAnimationFrame(() => {
-            card.style.animation = `popIn 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) ${idx * 40}ms both`;
+            card.style.animation = `popIn 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) ${idx * 30}ms both`;
+            setTimeout(() => {
+              card.style.animation = '';
+            }, 380 + idx * 30);
           });
         } else {
           card.setAttribute('data-hidden', 'true');
@@ -467,7 +470,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(type, 300);
   }
 
-  // Project Card 3D Tilt (Optimized with cached rect and RAF)
+  // Project Card Subtle 3D Tilt (Delicate, elegant, 100% reliable across all cards)
   function initCardTilt() {
     if (isReducedMotion) return;
     const cards = document.querySelectorAll('.project-card');
@@ -476,31 +479,44 @@ document.addEventListener('DOMContentLoaded', () => {
       let rect = null;
       let ticking = false;
 
-      card.addEventListener('mouseenter', () => {
+      function updateBounds() {
         rect = card.getBoundingClientRect();
-      }, { passive: true });
+      }
+
+      card.addEventListener('mouseenter', updateBounds, { passive: true });
 
       card.addEventListener('mousemove', (e) => {
-        if (!rect || ticking) return;
+        // Fallback: if cursor was already over card or layout shifted, ensure rect exists
+        if (!rect) {
+          rect = card.getBoundingClientRect();
+        }
+        if (ticking) return;
         ticking = true;
+
         const clientX = e.clientX;
         const clientY = e.clientY;
+
         requestAnimationFrame(() => {
           if (!rect) { ticking = false; return; }
           const x = clientX - rect.left;
           const y = clientY - rect.top;
           const centerX = rect.width / 2;
           const centerY = rect.height / 2;
-          const rotateX = ((y - centerY) / centerY) * -5;
-          const rotateY = ((x - centerX) / centerX) * 5;
-          card.style.transform = `perspective(800px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
+
+          // Subtle, elegant tilt: max ~2.0 degrees (refined, gentle, not exaggerated)
+          const rotateX = ((y - centerY) / centerY) * -2.0;
+          const rotateY = ((x - centerX) / centerX) * 2.0;
+
+          card.style.transition = 'transform 0.1s ease-out, border-color 0.2s ease, box-shadow 0.2s ease';
+          card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-2px)`;
           ticking = false;
         });
       }, { passive: true });
 
       card.addEventListener('mouseleave', () => {
         rect = null;
-        card.style.transform = '';
+        card.style.transition = 'transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.2s ease, box-shadow 0.2s ease';
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
       });
     });
   }
@@ -555,6 +571,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
           revealObs.unobserve(entry.target);
+          // When project cards finish entry animation, remove stagger-item so tilt is 100% clean
+          if (entry.target.classList.contains('project-card')) {
+            setTimeout(() => {
+              entry.target.classList.remove('stagger-item');
+              entry.target.style.transitionDelay = '';
+            }, 800);
+          }
         }
       });
     }, {

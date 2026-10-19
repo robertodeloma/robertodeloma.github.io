@@ -1245,7 +1245,6 @@ header.site-header {
 .project-card:hover {
   border-color: var(--border-hover);
   background: var(--bg-surface-elevated);
-  transform: translateY(-3px);
   box-shadow: var(--shadow-glow);
 }
 
