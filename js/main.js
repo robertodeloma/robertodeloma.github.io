@@ -177,11 +177,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.setAttribute('data-theme', prePrintTheme);
   });
 
-  const printBtn = document.getElementById('print-cv-btn');
-  if (printBtn) {
-    printBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.print();
+  const downloadCvBtn = document.getElementById('download-cv-btn');
+  if (downloadCvBtn) {
+    downloadCvBtn.addEventListener('click', () => {
+      showToast('Descargando CV_Roberto_de_Loma-Ossorio_Salas.pdf...');
     });
   }
 
@@ -545,6 +544,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const commandList = {
       help: () => `Comandos disponibles:
+  <span class="term-cyan">cv</span>        - Descargar CV (PDF) de Roberto de Loma-Ossorio
   <span class="term-cyan">whoami</span>    - Información del perfil profesional
   <span class="term-cyan">skills</span>    - Stack de virtualización, servidores y redes
   <span class="term-cyan">certs</span>     - Certificaciones oficiales Microsoft y Stratio
@@ -554,6 +554,14 @@ document.addEventListener('DOMContentLoaded', () => {
   <span class="term-cyan">contact</span>   - Canales directos de contacto
   <span class="term-cyan">clear</span>     - Limpiar pantalla
   <span class="term-cyan">exit</span>      - Cerrar consola`,
+
+      cv: () => {
+        const link = document.createElement('a');
+        link.href = 'CV_Roberto_de_Loma-Ossorio_Salas.pdf';
+        link.download = 'CV_Roberto_de_Loma-Ossorio_Salas.pdf';
+        link.click();
+        return 'Descargando <span class="term-cyan">CV_Roberto_de_Loma-Ossorio_Salas.pdf</span>...';
+      },
 
       whoami: () => `<strong>Roberto de Loma-Ossorio Salas</strong>
 Puesto: Técnico de Analítica Avanzada &amp; Administrador de Sistemas

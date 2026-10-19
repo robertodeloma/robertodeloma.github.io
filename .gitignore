@@ -1,0 +1,4 @@
+build_cv_*.py
+get_pages.ps1
+__pycache__/
+*.pyc
