@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
     printNextLine();
   }
 
-  // Hero Network Topology Canvas
+  // Hero Network Topology Canvas (Optimized 60-120fps GPU friendly)
   function initNetworkCanvas() {
     const canvas = document.getElementById('network-canvas');
     if (!canvas || isReducedMotion) return;
@@ -257,13 +257,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const ctx = canvas.getContext('2d');
     let width = canvas.width = canvas.offsetWidth;
     let height = canvas.height = canvas.offsetHeight;
+    let canvasRect = canvas.getBoundingClientRect();
 
     window.addEventListener('resize', () => {
       width = canvas.width = canvas.offsetWidth;
       height = canvas.height = canvas.offsetHeight;
-    });
+      canvasRect = canvas.getBoundingClientRect();
+    }, { passive: true });
 
-    const nodeCount = Math.min(36, Math.floor(width / 32));
+    window.addEventListener('scroll', () => {
+      if (isHeroVisible) {
+        canvasRect = canvas.getBoundingClientRect();
+      }
+    }, { passive: true });
+
+    // Balanced node count: sleek visuals without O(N^2) CPU drag
+    const nodeCount = Math.min(24, Math.max(14, Math.floor(width / 45)));
     const nodes = [];
     const packets = [];
 
@@ -271,10 +280,10 @@ document.addEventListener('DOMContentLoaded', () => {
       nodes.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.45,
-        vy: (Math.random() - 0.5) * 0.45,
-        radius: Math.random() * 2.2 + 1.8,
-        isServer: Math.random() > 0.75,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        radius: Math.random() * 1.8 + 1.6,
+        isServer: Math.random() > 0.72,
         pulse: Math.random() * Math.PI * 2
       });
     }
@@ -282,21 +291,21 @@ document.addEventListener('DOMContentLoaded', () => {
     let mouse = { x: -1000, y: -1000 };
     const hero = document.getElementById('hero');
     hero.addEventListener('mousemove', (e) => {
-      const rect = canvas.getBoundingClientRect();
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
-    });
+      mouse.x = e.clientX - canvasRect.left;
+      mouse.y = e.clientY - canvasRect.top;
+    }, { passive: true });
+
     hero.addEventListener('mouseleave', () => {
       mouse.x = -1000;
       mouse.y = -1000;
-    });
+    }, { passive: true });
 
     // Spawn packets along lines periodically
     setInterval(() => {
-      if (nodes.length < 2) return;
+      if (!isHeroVisible || nodes.length < 2) return;
       const a = Math.floor(Math.random() * nodes.length);
       let closest = -1;
-      let minD = 140;
+      let minD = 135;
       for (let j = 0; j < nodes.length; j++) {
         if (a === j) continue;
         const dx = nodes[a].x - nodes[j].x;
@@ -312,113 +321,129 @@ document.addEventListener('DOMContentLoaded', () => {
           from: a,
           to: closest,
           progress: 0,
-          speed: 0.015 + Math.random() * 0.02
+          speed: 0.016 + Math.random() * 0.018
         });
       }
-    }, 450);
+    }, 550);
 
-    let isVisible = true;
-    const heroObserver = new IntersectionObserver((entries) => {
-      isVisible = entries[0].isIntersecting;
-    });
-    heroObserver.observe(hero);
+    let isHeroVisible = true;
+    let rafId = null;
 
-    function animate() {
-      if (isVisible) {
-        ctx.clearRect(0, 0, width, height);
+    function renderFrame() {
+      ctx.clearRect(0, 0, width, height);
 
-        const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
-        const lineBaseColor = isDark ? 'rgba(56, 189, 248,' : 'rgba(2, 132, 199,';
-        const nodeColor = isDark ? '#38bdf8' : '#0284c7';
-        const serverColor = isDark ? '#34d399' : '#059669';
+      const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+      const lineBaseColor = isDark ? 'rgba(56, 189, 248,' : 'rgba(2, 132, 199,';
+      const nodeColor = isDark ? '#38bdf8' : '#0284c7';
+      const serverColor = isDark ? '#34d399' : '#059669';
 
-        // Update and draw nodes
-        for (let i = 0; i < nodes.length; i++) {
-          const n = nodes[i];
-          n.x += n.vx;
-          n.y += n.vy;
+      // Update and draw nodes (NO expensive shadowBlur to guarantee 60-120fps)
+      for (let i = 0; i < nodes.length; i++) {
+        const n = nodes[i];
+        n.x += n.vx;
+        n.y += n.vy;
 
-          if (n.x < 0 || n.x > width) n.vx *= -1;
-          if (n.y < 0 || n.y > height) n.vy *= -1;
+        if (n.x < 0 || n.x > width) n.vx *= -1;
+        if (n.y < 0 || n.y > height) n.vy *= -1;
 
-          n.pulse += 0.03;
+        n.pulse += 0.025;
 
-          // Mouse attraction
-          const dxMouse = mouse.x - n.x;
-          const dyMouse = mouse.y - n.y;
-          const dMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
-          if (dMouse < 140) {
-            n.x += dxMouse * 0.015;
-            n.y += dyMouse * 0.015;
-          }
+        // Mouse attraction
+        const dxMouse = mouse.x - n.x;
+        const dyMouse = mouse.y - n.y;
+        const dMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+        if (dMouse < 130) {
+          n.x += dxMouse * 0.012;
+          n.y += dyMouse * 0.012;
+        }
 
+        // Draw core node
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.radius + Math.sin(n.pulse) * 0.4, 0, Math.PI * 2);
+        ctx.fillStyle = n.isServer ? serverColor : nodeColor;
+        ctx.fill();
+
+        // Draw clean outer ring for servers (fast vector path, zero blur lag)
+        if (n.isServer) {
           ctx.beginPath();
-          ctx.arc(n.x, n.y, n.radius + Math.sin(n.pulse) * 0.5, 0, Math.PI * 2);
-          ctx.fillStyle = n.isServer ? serverColor : nodeColor;
-          ctx.shadowColor = n.isServer ? serverColor : nodeColor;
-          ctx.shadowBlur = n.isServer ? 8 : 4;
-          ctx.fill();
-          ctx.shadowBlur = 0;
+          ctx.arc(n.x, n.y, n.radius + 2.5, 0, Math.PI * 2);
+          ctx.strokeStyle = isDark ? 'rgba(52, 211, 153, 0.4)' : 'rgba(5, 150, 105, 0.35)';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
 
-          // Connect nodes
-          for (let j = i + 1; j < nodes.length; j++) {
-            const m = nodes[j];
-            const dx = n.x - m.x;
-            const dy = n.y - m.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
+        // Connect nodes
+        for (let j = i + 1; j < nodes.length; j++) {
+          const m = nodes[j];
+          const dx = n.x - m.x;
+          const dy = n.y - m.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
 
-            if (dist < 125) {
-              const alpha = (1 - dist / 125) * 0.28;
-              ctx.beginPath();
-              ctx.moveTo(n.x, n.y);
-              ctx.lineTo(m.x, m.y);
-              ctx.strokeStyle = `${lineBaseColor} ${alpha})`;
-              ctx.lineWidth = 1;
-              ctx.stroke();
-            }
-          }
-
-          // Connect to mouse
-          if (dMouse < 140) {
-            const alpha = (1 - dMouse / 140) * 0.45;
+          if (dist < 120) {
+            const alpha = (1 - dist / 120) * 0.24;
             ctx.beginPath();
             ctx.moveTo(n.x, n.y);
-            ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = `rgba(52, 211, 153, ${alpha})`;
-            ctx.lineWidth = 1.2;
+            ctx.lineTo(m.x, m.y);
+            ctx.strokeStyle = `${lineBaseColor} ${alpha})`;
+            ctx.lineWidth = 0.9;
             ctx.stroke();
           }
         }
 
-        // Draw and update packets
-        for (let p = packets.length - 1; p >= 0; p--) {
-          const pkt = packets[p];
-          pkt.progress += pkt.speed;
-
-          if (pkt.progress >= 1 || !nodes[pkt.from] || !nodes[pkt.to]) {
-            packets.splice(p, 1);
-            continue;
-          }
-
-          const n1 = nodes[pkt.from];
-          const n2 = nodes[pkt.to];
-          const px = n1.x + (n2.x - n1.x) * pkt.progress;
-          const py = n1.y + (n2.y - n1.y) * pkt.progress;
-
+        // Connect to mouse
+        if (dMouse < 130) {
+          const alpha = (1 - dMouse / 130) * 0.38;
           ctx.beginPath();
-          ctx.arc(px, py, 2.2, 0, Math.PI * 2);
-          ctx.fillStyle = isDark ? '#34d399' : '#047857';
-          ctx.shadowColor = '#34d399';
-          ctx.shadowBlur = 6;
-          ctx.fill();
-          ctx.shadowBlur = 0;
+          ctx.moveTo(n.x, n.y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.strokeStyle = `rgba(52, 211, 153, ${alpha})`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
         }
       }
 
-      requestAnimationFrame(animate);
+      // Draw and update packets
+      for (let p = packets.length - 1; p >= 0; p--) {
+        const pkt = packets[p];
+        pkt.progress += pkt.speed;
+
+        if (pkt.progress >= 1 || !nodes[pkt.from] || !nodes[pkt.to]) {
+          packets.splice(p, 1);
+          continue;
+        }
+
+        const n1 = nodes[pkt.from];
+        const n2 = nodes[pkt.to];
+        const px = n1.x + (n2.x - n1.x) * pkt.progress;
+        const py = n1.y + (n2.y - n1.y) * pkt.progress;
+
+        ctx.beginPath();
+        ctx.arc(px, py, 2.2, 0, Math.PI * 2);
+        ctx.fillStyle = isDark ? '#34d399' : '#059669';
+        ctx.fill();
+      }
     }
 
-    animate();
+    function loop() {
+      if (!isHeroVisible) {
+        rafId = null;
+        return;
+      }
+      renderFrame();
+      rafId = requestAnimationFrame(loop);
+    }
+
+    // Automatically pause canvas execution when hero is offscreen
+    const heroObserver = new IntersectionObserver((entries) => {
+      isHeroVisible = entries[0].isIntersecting;
+      if (isHeroVisible && !rafId) {
+        rafId = requestAnimationFrame(loop);
+      }
+    }, { threshold: 0 });
+    heroObserver.observe(hero);
+
+    // Initial start
+    rafId = requestAnimationFrame(loop);
   }
 
   // Hero Typewriter Eyebrow
@@ -442,54 +467,87 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(type, 300);
   }
 
-  // Project Card 3D Tilt
+  // Project Card 3D Tilt (Optimized with cached rect and RAF)
   function initCardTilt() {
     if (isReducedMotion) return;
     const cards = document.querySelectorAll('.project-card');
 
     cards.forEach(card => {
+      let rect = null;
+      let ticking = false;
+
+      card.addEventListener('mouseenter', () => {
+        rect = card.getBoundingClientRect();
+      }, { passive: true });
+
       card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const rotateX = ((y - centerY) / centerY) * -7;
-        const rotateY = ((x - centerX) / centerX) * 7;
-
-        card.style.transform = `perspective(800px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
-      });
+        if (!rect || ticking) return;
+        ticking = true;
+        const clientX = e.clientX;
+        const clientY = e.clientY;
+        requestAnimationFrame(() => {
+          if (!rect) { ticking = false; return; }
+          const x = clientX - rect.left;
+          const y = clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -5;
+          const rotateY = ((x - centerX) / centerX) * 5;
+          card.style.transform = `perspective(800px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
+          ticking = false;
+        });
+      }, { passive: true });
 
       card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0)';
+        rect = null;
+        card.style.transform = '';
       });
     });
   }
 
-  // Scroll Stagger Reveal
+  // Smooth Scroll Reveal System (Elements appear gradually as you scroll)
   function initScrollReveal() {
     if (isReducedMotion) return;
 
-    // Apply stagger class & delays
-    document.querySelectorAll('.skill-category-card').forEach((el, i) => {
+    // Comprehensive selector list: all sections, cards, and modules reveal gracefully
+    const selectors = [
+      '.section-header',
+      '.about-grid > *',
+      '.stat-card',
+      '.timeline-item',
+      '.cert-card',
+      '.skill-category-card',
+      '.projects-grid .project-card',
+      '.pfg-card',
+      '.pfg-architecture-card',
+      '.pfg-specs-card',
+      '.edu-card',
+      '.contact-card',
+      '.contact-form-card'
+    ];
+
+    const elementsToReveal = document.querySelectorAll(selectors.join(', '));
+    elementsToReveal.forEach((el) => {
       el.classList.add('stagger-item');
-      el.style.transitionDelay = `${i * 70}ms`;
     });
 
-    document.querySelectorAll('.projects-grid .project-card').forEach((el, i) => {
-      el.classList.add('stagger-item');
-      el.style.transitionDelay = `${(i % 3) * 90}ms`;
-    });
+    // Stagger delay within key grids so children reveal in smooth cascade
+    const staggerContainers = [
+      { sel: '.certifications-grid', step: 75, max: 4 },
+      { sel: '.skills-bento', step: 80, max: 4 },
+      { sel: '.projects-grid', step: 85, max: 3 },
+      { sel: '.stats-grid', step: 70, max: 4 },
+      { sel: '.edu-grid', step: 90, max: 2 }
+    ];
 
-    document.querySelectorAll('.timeline-item').forEach((el, i) => {
-      el.classList.add('stagger-item');
-      el.style.transitionDelay = `${i * 100}ms`;
-    });
-
-    document.querySelectorAll('.cert-card').forEach((el, i) => {
-      el.classList.add('stagger-item');
-      el.style.transitionDelay = `${(i % 3) * 70}ms`;
+    staggerContainers.forEach(({ sel, step, max }) => {
+      const container = document.querySelector(sel);
+      if (container) {
+        const items = container.querySelectorAll('.stagger-item');
+        items.forEach((item, idx) => {
+          item.style.transitionDelay = `${(idx % max) * step}ms`;
+        });
+      }
     });
 
     const revealObs = new IntersectionObserver((entries) => {
@@ -499,9 +557,12 @@ document.addEventListener('DOMContentLoaded', () => {
           revealObs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, {
+      rootMargin: '0px 0px -45px 0px',
+      threshold: 0.05
+    });
 
-    document.querySelectorAll('.stagger-item').forEach(el => revealObs.observe(el));
+    elementsToReveal.forEach(el => revealObs.observe(el));
   }
 
   // Interactive Sysadmin Terminal Console

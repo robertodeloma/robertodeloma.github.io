@@ -247,6 +247,8 @@ body::before {
     radial-gradient(circle at 100% 100%, rgba(129, 140, 248, 0.04), transparent 50%);
   pointer-events: none;
   z-index: -1;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 a {
@@ -2129,16 +2131,28 @@ footer.site-footer {
   to { --ang: 360deg; }
 }
 
-/* ---- Scroll Stagger Animation ---- */
-.stagger-item {
+/* ---- Ultra-Smooth Scroll Stagger & Reveal System ---- */
+.stagger-item,
+.reveal-item {
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: translateY(24px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
-.stagger-item.visible {
+.stagger-item.visible,
+.reveal-item.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stagger-item,
+  .reveal-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 /* ---- Linux / Sysadmin Boot Sequence Overlay ---- */
